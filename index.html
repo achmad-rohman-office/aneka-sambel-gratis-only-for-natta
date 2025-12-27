@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aneka Sambel - Website Bisnis Makanan</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navigasi -->
+    <nav>
+        <div class="nav-container">
+            <h1>Aneka Sambel</h1>
+            <ul>
+                <li><button onclick="showSection('home')">Home</button></li>
+                <li><button onclick="showSection('menu')">Menu</button></li>
+                <li><button onclick="showSection('cart')">Keranjang</button></li>
+                <li><button onclick="showSection('checkout')">Checkout</button></li>
+                <li><button onclick="showSection('contact')">Kontak</button></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Section Home -->
+    <section id="home" class="section active">
+        <div class="container">
+            <h2>Selamat Datang di Aneka Sambel</h2>
+            <p>Slogan: Sambel Pedas, Hidup Lebih Nikmat! Nikmati berbagai paket makanan dan minuman dengan cita rasa sambel yang khas.</p>
+        </div>
+    </section>
+
+    <!-- Section Menu -->
+    <section id="menu" class="section">
+        <div class="container">
+            <h2>Menu Makanan & Minuman</h2>
+            <div id="menu-list"></div> <!-- Menu akan diisi oleh JS -->
+        </div>
+    </section>
+
+    <!-- Section Keranjang -->
+    <section id="cart" class="section">
+        <div class="container">
+            <h2>Keranjang Pesanan</h2>
+            <div id="cart-items"></div> <!-- Keranjang akan diisi oleh JS -->
+            <p>Total: Rp <span id="total-price">0</span></p>
+        </div>
+    </section>
+
+    <!-- Section Checkout -->
+    <section id="checkout" class="section">
+        <div class="container">
+            <h2>Checkout Pesanan</h2>
+            <div id="checkout-list"></div> <!-- List pesanan akan diisi oleh JS -->
+            <p>Total: Rp <span id="checkout-total">0</span></p>
+            <form id="checkout-form">
+                <label for="name">Nama Pembeli:</label>
+                <input type="text" id="name" required>
+                <label for="address">Alamat:</label>
+                <textarea id="address" required></textarea>
+                <label for="notes">Catatan (Opsional):</label>
+                <textarea id="notes"></textarea>
+                <button type="button" onclick="placeOrder()">Pesan Sekarang</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Section Kontak -->
+    <section id="contact" class="section">
+        <div class="container">
+            <h2>Kontak Kami</h2>
+            <p>Hubungi kami via WhatsApp atau Instagram untuk informasi lebih lanjut.</p>
+            <a href="https://wa.me/6282223116787?text=Halo%20Aneka%20Sambel%2C%20saya%20ingin%20bertanya%20tentang%20menu." target="_blank">WhatsApp</a>
+            <a href="https://www.instagram.com/kokobukancina__" target="_blank">Instagram</a>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>

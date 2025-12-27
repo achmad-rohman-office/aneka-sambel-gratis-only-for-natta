@@ -1,0 +1,28 @@
+<!-- keranjang.html -->
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Keranjang - Aneka Sambel</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header>
+    <h1>Keranjang Pesanan</h1>
+    <a href="menu.html" class="btn">← Lanjut Belanja</a>
+  </header>
+
+  <main>
+    <div id="cart-items">
+      <!-- Item akan diisi oleh JavaScript -->
+    </div>
+    <div id="cart-total" class="total-box">
+      Total: Rp <span id="total-amount">0</span>
+    </div>
+    <button id="checkout-btn" class="btn" style="width: 100%; margin-top: 1rem;">Lanjut ke Checkout</button>
+  </main>
+
+  <script src="js/cart.js"></script>
+</body>
+</html>

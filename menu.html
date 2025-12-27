@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Menu - Aneka Sambel</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header a href="keranjang.html" class="cart-link">🛒 Keranjang</a>>
+    <h1>Menu Kami</h1>
+    <a href="index.html" class="btn">← Kembali</a>
+  </header>
+
+  <main>
+    <section id="makanan">
+      <h2>Makanan</h2>
+      <div class="menu-grid" id="makanan-list"></div>
+    </section>
+
+    <section id="minuman">
+      <h2>Minuman</h2>
+      <div class="menu-grid" id="minuman-list"></div>
+    </section>
+  </main>
+
+  <script src="js/menu.js"></script>
+  <script>
+    // Render menu ke HTML
+    function renderMenu() {
+      const makananList = document.getElementById('makanan-list');
+      const minumanList = document.getElementById('minuman-list');
+
+      menuItems.makanan.forEach(item => {
+        const el = document.createElement('div');
+        el.className = 'menu-item';
+        el.innerHTML = `
+          <h3>${item.nama}</h3>
+          ${item.deskripsi ? `<p class="deskripsi">${item.deskripsi}</p>` : ''}
+          <p class="harga">Rp ${item.harga.toLocaleString('id-ID')}</p>
+          <button class="btn" onclick="addToCart('${item.id}', '${item.nama}', ${item.harga})">Tambah ke Keranjang</button>
+        `;
+        makananList.appendChild(el);
+      });
+
+      menuItems.minuman.forEach(item => {
+        const el = document.createElement('div');
+        el.className = 'menu-item';
+        el.innerHTML = `
+          <h3>${item.nama}</h3>
+          <p class="harga">Rp ${item.harga.toLocaleString('id-ID')}</p>
+          <button class="btn" onclick="addToCart('${item.id}', '${item.nama}', ${item.harga})">Tambah ke Keranjang</button>
+        `;
+        minumanList.appendChild(el);
+      });
+    }
+
+    // Fungsi sementara (nanti dipindah ke cart.js)
+    function addToCart(id, nama, harga) {
+      let cart = JSON.parse(localStorage.getItem('cart') || '[]');
+      const existing = cart.find(item => item.id === id);
+      if (existing) {
+        existing.qty += 1;
+      } else {
+        cart.push({ id, nama, harga, qty: 1 });
+      }
+      localStorage.setItem('cart', JSON.stringify(cart));
+      alert(`${nama} ditambahkan ke keranjang!`);
+    }
+
+    renderMenu();
+  </script>
+</body>
+</html>
