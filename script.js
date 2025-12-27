@@ -131,11 +131,12 @@ function placeOrder() {
     });
     message += `Total: Rp ${document.getElementById('checkout-total').textContent}\nAlamat: ${address}`;
     if (notes) message += `\nCatatan: ${notes}`;
-    const whatsappUrl = `https://wa.me/6281234567890?text=${encodeURIComponent(message)}`; // Ganti nomor WA di sini
+    const whatsappUrl = `https://wa.me/6282223116787?text=${encodeURIComponent(message)}`; // Ganti nomor WA di sini
     window.open(whatsappUrl, '_blank');
 }
 
 // Inisialisasi
 document.addEventListener('DOMContentLoaded', () => {
     showSection('home');
+
 });
